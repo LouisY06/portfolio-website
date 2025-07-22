@@ -1,20 +1,13 @@
-// src/App.jsx
-import Navbar from './components/Navbar';
-import Home from './components/Home';
-import Portfolio from './components/Portfolio';
-import Resume from './components/Resume';
-import Minigame from './components/Minigame';
-import Contact from './components/Contact';
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import About from "./components/About";
 
 function App() {
   return (
-    <div className="scroll-smooth bg-black text-white">
+    <div className="font-sans bg-white text-black">
       <Navbar />
-      <Home />
-      <Portfolio />
-      <Resume />
-      <Minigame />
-      <Contact />
+      <Hero />
+      <About />
     </div>
   );
 }

@@ -1,18 +1,19 @@
-function Navbar() {
-    return (
-      <nav className="fixed top-0 w-full bg-gray-900 text-white shadow z-50">
-        <div className="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-          <h1 className="text-xl font-bold">My Portfolio</h1>
-          <ul className="flex space-x-6 font-medium">
-            <li><a href="#home" className="hover:text-blue-400 transition">Home</a></li>
-            <li><a href="#portfolio" className="hover:text-blue-400 transition">Portfolio</a></li>
-            <li><a href="#resume" className="hover:text-blue-400 transition">Resume</a></li>
-            <li><a href="#minigame" className="hover:text-blue-400 transition">Minigame</a></li>
-            <li><a href="#contact" className="hover:text-blue-400 transition">Contact</a></li>
-          </ul>
-        </div>
-      </nav>
-    );
-  }
-  
-  export default Navbar;
+// src/components/Navbar.jsx
+export default function Navbar() {
+  return (
+    <nav className="flex justify-between items-center px-6 py-4 bg-white border-b">
+      <div className="text-lg font-semibold">louis.</div>
+      <ul className="flex gap-6 text-sm text-gray-600">
+        <li className="hover:text-black cursor-pointer">
+          <a href="#work">Work</a>
+        </li>
+        <li className="hover:text-black cursor-pointer">
+          <a href="#about">About</a>
+        </li>
+        <li className="hover:text-black cursor-pointer">
+          <a href="#contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  );
+}
