@@ -49,7 +49,7 @@ export default function Projects() {
       link: 'https://github.com/LouisY06/http-server',
     },
     {
-      title: 'Portfolio Website',
+      title: 'Portfolio Website (This One)',
       description:
         'My first attempt at a personal portfolio website built using React, Tailwind CSS, and scroll-based animations.',
       link: 'https://github.com/LouisY06/portfolio-website',

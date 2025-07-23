@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 const phrases = [
-  "Hey, I'm Louis",
+  "Hi, I'm Louis",
   "CS @ Columbia"
 ];
 
@@ -35,9 +35,9 @@ export default function Hero() {
   }, [charIndex, isDeleting, phraseIndex]);
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 bg-white overflow-hidden">
-      {/* Blurred background glow */}
-      <div className="absolute top-[-10%] left-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-purple-300 to-pink-300 opacity-30 rounded-full blur-[160px] -z-10"></div>
+    <section className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 bg-gradient-to-b from-white to-gray-100 overflow-hidden">
+      {/* Blurred background glow with floating animation */}
+      <div className="absolute top-[-10%] left-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-purple-300 to-pink-300 opacity-60 rounded-full blur-[160px] -z-10 animate-[floatBlob_6s_ease-in-out_infinite]"></div>
 
       <h1
         data-aos="fade-up"
@@ -54,7 +54,7 @@ export default function Hero() {
         data-aos-delay="300"
         className="mt-6 text-lg text-gray-600 max-w-xl"
       >
-        The Wolf of Canal St
+        Merging hands-on grit with digital craft
       </p>
 
       {/* Buttons */}
@@ -95,7 +95,7 @@ export default function Hero() {
         </a>
       </div>
 
-      {/* Cursor animation */}
+      {/* Cursor animation and floating animation keyframes */}
       <style>{`
         .blinking-cursor {
           animation: blink 1s step-end infinite;
@@ -103,6 +103,10 @@ export default function Hero() {
         @keyframes blink {
           from, to { opacity: 0 }
           50% { opacity: 1 }
+        }
+        @keyframes floatBlob {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-20px); }
         }
       `}</style>
     </section>

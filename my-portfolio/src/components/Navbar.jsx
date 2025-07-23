@@ -14,7 +14,7 @@ export default function Navbar() {
     <nav className="w-full bg-white border-b px-6 py-4 fixed top-0 left-0 z-50 shadow-sm">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
         {/* Logo */}
-        <a href="#hero" className="text-lg font-semibold">louis.</a>
+        <a href="#hero" className="text-lg font-semibold">louis yu</a>
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-6 text-sm text-gray-600 items-center">
