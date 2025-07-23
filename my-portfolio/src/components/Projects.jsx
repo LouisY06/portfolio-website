@@ -1,4 +1,3 @@
-// src/components/Projects.jsx
 import React from 'react';
 import project1 from '../assets/project1.png';
 import project2 from '../assets/project2.png';
@@ -31,6 +30,13 @@ export default function Projects() {
 
   const smallProjects = [
     {
+      title: 'Published Research Paper',
+      description:
+        'Co-authored a research paper on computational methods and NLP, published in a peer-reviewed journal. Explores modern techniques in sentiment classification. NSF Grant 2435093',
+      link: '/paper.pdf',
+      buttonText: 'View PDF →',
+    },
+    {
       title: 'X Sentiment Analyzer',
       description:
         'Analyzes sentiment from tweets using the Sentiment140 dataset. Cleans, tokenizes, and classifies tweets to determine public opinion on a keyword using NLTK.',
@@ -40,7 +46,7 @@ export default function Projects() {
       title: 'HTTP Server',
       description:
         'HTTP server built from scratch in C with socket programming. Private on GitHub due to it being a class final project.',
-      link: 'https://github.com/LouisY06/python-http-server',
+      link: 'https://github.com/LouisY06/http-server',
     },
     {
       title: 'Portfolio Website',
@@ -112,7 +118,7 @@ export default function Projects() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                View on GitHub →
+                {proj.buttonText || 'View on GitHub →'}
               </a>
             </div>
           ))}

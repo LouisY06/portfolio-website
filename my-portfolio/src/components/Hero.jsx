@@ -36,6 +36,7 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 bg-white overflow-hidden">
+      {/* Blurred background glow */}
       <div className="absolute top-[-10%] left-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-purple-300 to-pink-300 opacity-30 rounded-full blur-[160px] -z-10"></div>
 
       <h1
@@ -53,28 +54,45 @@ export default function Hero() {
         data-aos-delay="300"
         className="mt-6 text-lg text-gray-600 max-w-xl"
       >
-        Bombaclat
+        The Wolf of Canal St
       </p>
 
+      {/* Buttons */}
       <div
         data-aos="fade-up"
         data-aos-delay="500"
-        className="mt-10 flex gap-4"
+        className="mt-10 flex flex-wrap justify-center gap-4"
       >
+        {/* Contact Button (white outline) */}
         <button
-        onClick={() => {
-          const el = document.getElementById('projects');
-          if (el) {
-            el.scrollIntoView({ behavior: 'smooth' });
-          }
-        }}
-        className="bg-black text-white px-6 py-2 rounded hover:scale-105 transition-transform duration-300"
-      >
-        Projects
-      </button>
-        <button className="border border-gray-300 px-6 py-2 rounded hover:bg-gray-100 transition hover:scale-105 duration-300">
+          onClick={() => {
+            const el = document.getElementById('contact');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }}
+          className="border border-gray-300 px-6 py-2 rounded text-gray-700 hover:bg-gray-100 hover:text-black transition hover:scale-105 duration-300"
+        >
           Contact Me
         </button>
+
+        {/* Projects Button (centered, black) */}
+        <button
+          onClick={() => {
+            const el = document.getElementById('projects');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }}
+          className="bg-black text-white px-6 py-2 rounded hover:scale-105 transition-transform duration-300"
+        >
+          Projects
+        </button>
+
+        {/* Resume Button (white outline) */}
+        <a
+          href="/LOUIS_YU_RESUME.pdf"
+          download
+          className="border border-gray-300 px-6 py-2 rounded text-gray-700 hover:bg-gray-100 hover:text-black transition hover:scale-105 duration-300"
+        >
+          Download Resume
+        </a>
       </div>
 
       {/* Cursor animation */}
