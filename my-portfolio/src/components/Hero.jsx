@@ -53,7 +53,7 @@ export default function Hero() {
         data-aos-delay="300"
         className="mt-6 text-lg text-gray-600 max-w-xl"
       >
-        I design clean, modern digital experiences focused on clarity and usability.
+        Bombaclat
       </p>
 
       <div
@@ -61,9 +61,17 @@ export default function Hero() {
         data-aos-delay="500"
         className="mt-10 flex gap-4"
       >
-        <button className="bg-black text-white px-6 py-2 rounded hover:scale-105 transition-transform duration-300">
-          View Work
-        </button>
+        <button
+        onClick={() => {
+          const el = document.getElementById('projects');
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
+        }}
+        className="bg-black text-white px-6 py-2 rounded hover:scale-105 transition-transform duration-300"
+      >
+        Projects
+      </button>
         <button className="border border-gray-300 px-6 py-2 rounded hover:bg-gray-100 transition hover:scale-105 duration-300">
           Contact Me
         </button>

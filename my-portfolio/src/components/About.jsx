@@ -14,6 +14,11 @@ export default function About() {
       >
         {/* Optionally insert your profile image:
         <img src={profileImage} className="object-cover w-full h-full rounded-full" /> */}
+        <img
+          src="/src/assets/profile.jpg"
+          alt="Louis Yu"
+          className="w-40 h-40 md:w-64 md:h-64 rounded-full object-cover shadow-lg"
+        />
       </div>
 
       {/* Text */}
