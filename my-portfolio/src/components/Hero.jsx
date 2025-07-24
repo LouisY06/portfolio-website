@@ -94,6 +94,14 @@ export default function Hero() {
         >
           Download Resume
         </a>
+
+        {/* Story of My Life Button (white outline) */}
+        <a
+          href="/timeline"
+          className="border border-gray-300 px-6 py-2 rounded text-gray-700 hover:bg-gray-100 hover:text-black transition hover:scale-105 duration-300"
+        >
+          Story of My Life
+        </a>
       </div>
 
       {/* Social Links */}
