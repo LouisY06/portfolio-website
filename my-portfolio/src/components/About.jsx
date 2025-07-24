@@ -1,5 +1,6 @@
 // src/components/About.jsx
 import React from 'react';
+import profilePic from '../assets/profile.png'
 
 export default function About() {
   return (
@@ -10,14 +11,9 @@ export default function About() {
       {/* Image */}
       <div
         data-aos="fade-right"
-        className="w-40 h-40 md:w-64 md:h-64 mb-10 md:mb-0 md:mr-16 rounded-full bg-gray-200 shadow-md"
-      >
-        {/* Optionally insert your profile image:
-        <img src={profileImage} className="object-cover w-full h-full rounded-full" /> */}
+        className="w-56 h-56 md:w-80 md:h-80 mb-10 md:mb-0 md:mr-16 bg-gray-200 shadow-md rounded-lg overflow-hidden"      >
         <img
-          src="/src/assets/profile.jpg"
-          alt="Louis Yu"
-          className="w-40 h-40 md:w-64 md:h-64 rounded-full object-cover shadow-lg"
+          src={profilePic} alt="Profile" className="object-cover w-full h-full"
         />
       </div>
 
@@ -31,12 +27,11 @@ export default function About() {
           Hi, I'm Louis.
         </h2>
         <p className="text-gray-600 text-lg leading-loose tracking-wide mb-4">
-          I'm a computer science student at Columbia University with a passion for building meaningful, modern digital experiences.
+          I'm a computer science student at Columbia University with a minor in Innovation and Entrepreneurship.
         </p>
-        <p className="text-gray-600 text-lg leading-loose tracking-wide">
-        Hi, I’m Louis Yu. I’m a computer science major at Columbia University with a passion for building things. I love working on software, tools, and projects that solve real problems. I grew up working in my family’s restaurant from a young age, 
-        which taught me a lot about discipline, teamwork, and staying grounded. Now I’m bringing that same energy into tech, always looking for ways to create useful and clean digital experiences.
-        </p>
+        <p className="text-gray-600 text-lg leading-loose tracking-wide mt-4">I grew up working in my family’s Chinese restaurant. I was bussing tables, rolling silverware, and helping out wherever I was needed. It was a fast-paced and hands-on environment that taught me grit, responsibility, and how to stay calm under pressure. I bring that same mindset into tech today. Whether I’m debugging code or designing a new feature, I stay focused, take pride in the work, and try to build things that are clean, useful, and thoughtful.</p>
+
+        <p className="text-gray-600 text-lg leading-loose tracking-wide mt-4">In my free time, I like working out, playing strategy games, and tinkering with side projects that usually start as jokes.</p>
       </div>
     </section>
   );

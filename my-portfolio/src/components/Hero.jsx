@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
 const phrases = [
   "Hi, I'm Louis",
@@ -92,6 +93,26 @@ export default function Hero() {
           className="border border-gray-300 px-6 py-2 rounded text-gray-700 hover:bg-gray-100 hover:text-black transition hover:scale-105 duration-300"
         >
           Download Resume
+        </a>
+      </div>
+
+      {/* Social Links */}
+      <div className="mt-8 flex gap-6" data-aos="fade-up" data-aos-delay="600">
+        <a
+          href="https://github.com/LouisY06"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-700 hover:text-black transition-transform hover:scale-110"
+        >
+          <FaGithub size={28} />
+        </a>
+        <a
+          href="https://linkedin.com/in/louisyu"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-gray-700 hover:text-blue-700 transition-transform hover:scale-110"
+        >
+          <FaLinkedin size={28} />
         </a>
       </div>
 
