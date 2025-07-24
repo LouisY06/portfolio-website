@@ -1,111 +1,74 @@
 import React, { useState, useEffect } from 'react';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 
-const phrases = [
-  "Hi, I'm Louis",
-  "CS @ Columbia"
+const lines = [
+  'echo "Hi, I\'m Louis"',
+  'echo "CS @ Columbia"',
+  'echo "Minor in Innovation and Entrepreneurship"',
 ];
 
 export default function Hero() {
-  const [text, setText] = useState('');
-  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [typedLines, setTypedLines] = useState(['']);
+  const [currentLine, setCurrentLine] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
-  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const currentPhrase = phrases[phraseIndex];
-    const speed = isDeleting ? 80 : 150;
-
-    const timeout = setTimeout(() => {
-      const nextText = isDeleting
-        ? currentPhrase.slice(0, charIndex - 1)
-        : currentPhrase.slice(0, charIndex + 1);
-
-      setText(nextText);
-      setCharIndex(isDeleting ? charIndex - 1 : charIndex + 1);
-
-      if (!isDeleting && nextText === currentPhrase) {
-        setTimeout(() => setIsDeleting(true), 1000);
-      } else if (isDeleting && nextText === '') {
-        setIsDeleting(false);
-        setPhraseIndex((prev) => (prev + 1) % phrases.length);
+    if (currentLine < lines.length) {
+      if (charIndex <= lines[currentLine].length) {
+        const timeout = setTimeout(() => {
+          const updated = [...typedLines];
+          updated[currentLine] = lines[currentLine].slice(0, charIndex);
+          setTypedLines(updated);
+          setCharIndex((prev) => prev + 1);
+        }, 60);
+        return () => clearTimeout(timeout);
+      } else {
+        setTimeout(() => {
+          setTypedLines((prev) => [...prev, '']);
+          setCurrentLine((prev) => prev + 1);
+          setCharIndex(0);
+        }, 1000);
       }
-    }, speed);
-
-    return () => clearTimeout(timeout);
-  }, [charIndex, isDeleting, phraseIndex]);
+    }
+  }, [charIndex, currentLine, typedLines]);
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 bg-gradient-to-b from-white to-gray-100 overflow-hidden">
-      {/* Blurred background glow with floating animation */}
-      <div className="absolute top-[-10%] left-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-purple-300 to-pink-300 opacity-60 rounded-full blur-[160px] -z-10 animate-[floatBlob_6s_ease-in-out_infinite]"></div>
+    <section
+      id="home"
+      className="relative min-h-screen flex flex-col justify-center items-center px-4 bg-gradient-to-b from-pink-50 via-purple-50 to-blue-50 text-gray-800 font-mono"
+    >
+      {/* Floating pastel glow */}
+      <div className="absolute top-[-10%] left-1/2 w-[700px] h-[700px] bg-gradient-to-tr from-purple-300 to-pink-300 opacity-50 rounded-full blur-[160px] -z-10 animate-[floatBlob_6s_ease-in-out_infinite]" />
 
-      <h1
-        data-aos="fade-up"
-        className="text-5xl md:text-6xl font-semibold text-gray-900 leading-tight h-[5rem]"
-      >
-        <span className="bg-gradient-to-r from-black via-gray-700 to-black bg-clip-text text-transparent">
-          {text}
-          <span className="blinking-cursor">|</span>
-        </span>
-      </h1>
+      {/* Terminal mock */}
+      <div className="w-full max-w-3xl rounded-xl overflow-hidden shadow-2xl border border-gray-300 bg-[#1e1e1e]">
+        {/* Top bar */}
+        <div className="flex items-center gap-2 px-4 py-2 bg-[#2e2e2e]">
+          <span className="w-3 h-3 bg-red-500 rounded-full" />
+          <span className="w-3 h-3 bg-yellow-400 rounded-full" />
+          <span className="w-3 h-3 bg-green-500 rounded-full" />
+          <span className="ml-4 text-gray-400 text-sm">louisyu — zsh — 80×24</span>
+        </div>
 
-      <p
-        data-aos="fade-up"
-        data-aos-delay="300"
-        className="mt-6 text-lg text-gray-600 max-w-xl"
-      >
-        Merging hands-on grit with digital craft
-      </p>
-
-      {/* Buttons */}
-      <div
-        data-aos="fade-up"
-        data-aos-delay="500"
-        className="mt-10 flex flex-wrap justify-center gap-4"
-      >
-        {/* Contact Button (white outline) */}
-        <button
-          onClick={() => {
-            const el = document.getElementById('contact');
-            if (el) el.scrollIntoView({ behavior: 'smooth' });
-          }}
-          className="border border-gray-300 px-6 py-2 rounded text-gray-700 hover:bg-gray-100 hover:text-black transition hover:scale-105 duration-300"
-        >
-          Contact Me
-        </button>
-
-        {/* Projects Button (centered, black) */}
-        <button
-          onClick={() => {
-            const el = document.getElementById('projects');
-            if (el) el.scrollIntoView({ behavior: 'smooth' });
-          }}
-          className="bg-black text-white px-6 py-2 rounded hover:scale-105 transition-transform duration-300"
-        >
-          Projects
-        </button>
-
-        {/* Resume Button (white outline) */}
-        <a
-          href="/LOUIS_YU_RESUME.pdf"
-          download
-          className="border border-gray-300 px-6 py-2 rounded text-gray-700 hover:bg-gray-100 hover:text-black transition hover:scale-105 duration-300"
-        >
-          Download Resume
-        </a>
-
-        {/* Story of My Life Button (white outline) */}
-        <a
-          href="/timeline"
-          className="border border-gray-300 px-6 py-2 rounded text-gray-700 hover:bg-gray-100 hover:text-black transition hover:scale-105 duration-300"
-        >
-          Story of My Life
-        </a>
+        {/* Terminal output */}
+        <div className="p-4 leading-relaxed text-sm bg-[#1e1e1e] min-h-[250px] whitespace-pre-wrap text-white">
+          <div className="text-green-400">
+            Last login: {new Date().toString().slice(0, 24)} on ttys034
+          </div>
+          {typedLines.map((line, idx) => (
+            <div key={idx}>
+              <span className="text-blue-300">(base)</span>{' '}
+              <span className="text-cyan-300">louisyu@Mac</span>{' '}
+              <span className="text-gray-300">~ %</span>{' '}
+              <span>{line}</span>
+              {idx === currentLine && <span className="blinking-cursor">█</span>}
+            </div>
+          ))}
+        </div>
       </div>
 
-      {/* Social Links */}
-      <div className="mt-8 flex gap-6" data-aos="fade-up" data-aos-delay="600">
+      {/* Social links */}
+      <div className="mt-10 flex gap-6">
         <a
           href="https://github.com/LouisY06"
           target="_blank"
@@ -124,13 +87,49 @@ export default function Hero() {
         </a>
       </div>
 
-      {/* Cursor animation and floating animation keyframes */}
+      {/* Action buttons */}
+      <div className="mt-8 flex flex-wrap justify-center gap-4">
+        {[
+          { text: 'Contact Me', id: 'contact' },
+          { text: 'Projects', id: 'projects' },
+        ].map(({ text, id }) => (
+          <button
+            key={id}
+            onClick={() => {
+              const el = document.getElementById(id);
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="px-6 py-2 border border-pink-300 rounded-md text-gray-800 hover:bg-pink-100 hover:scale-105 transition-all duration-300"
+          >
+            {text}
+          </button>
+        ))}
+
+        <a
+          href="/LOUIS_YU_RESUME.pdf"
+          download
+          className="px-6 py-2 border border-purple-300 rounded-md text-gray-800 hover:bg-purple-100 hover:scale-105 transition-all duration-300"
+        >
+          Download Resume
+        </a>
+
+        <a
+          href="/timeline"
+          className="px-6 py-2 border border-blue-300 rounded-md text-gray-800 hover:bg-blue-100 hover:scale-105 transition-all duration-300"
+        >
+          Story of My Life
+        </a>
+      </div>
+
+      {/* Inline styles */}
       <style>{`
         .blinking-cursor {
+          display: inline-block;
+          width: 10px;
           animation: blink 1s step-end infinite;
         }
         @keyframes blink {
-          from, to { opacity: 0 }
+          0%, 100% { opacity: 0 }
           50% { opacity: 1 }
         }
         @keyframes floatBlob {

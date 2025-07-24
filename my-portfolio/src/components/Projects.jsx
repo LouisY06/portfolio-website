@@ -57,9 +57,12 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="min-h-screen bg-white px-6 py-20">
+    <section
+      id="projects"
+      className="min-h-screen bg-[#f5f5f5] px-6 py-20 font-mono text-gray-900"
+    >
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-16 text-gray-900">
+        <h2 className="text-4xl font-bold text-center mb-16">
           Selected Projects
         </h2>
 
@@ -81,10 +84,10 @@ export default function Projects() {
               />
               <div className="md:w-1/2">
                 <h3 className="text-2xl font-semibold mb-4">{proj.title}</h3>
-                <p className="text-gray-600 mb-4">{proj.description}</p>
+                <p className="text-gray-700 mb-4">{proj.description}</p>
                 <a
                   href={proj.link}
-                  className="inline-block bg-black text-white px-4 py-2 rounded hover:scale-105 transition-transform duration-300"
+                  className="inline-block border border-gray-800 text-gray-900 px-4 py-2 rounded hover:bg-gray-100 hover:scale-105 transition-transform duration-300"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -96,25 +99,25 @@ export default function Projects() {
         </div>
 
         {/* Divider */}
-        <div className="my-20 border-t border-gray-200"></div>
+        <div className="my-20 border-t border-gray-300"></div>
 
         {/* More Projects */}
-        <h3 className="text-2xl font-semibold mb-6 text-gray-800">More Projects</h3>
+        <h3 className="text-2xl font-semibold mb-6">More Projects</h3>
         <div className="grid md:grid-cols-3 gap-6">
           {smallProjects.map((proj, i) => (
             <div
               key={i}
-              className="border rounded-lg p-6 flex flex-col justify-between hover:shadow-md transition"
+              className="border border-gray-300 rounded-lg p-6 flex flex-col justify-between hover:shadow-md transition bg-white"
               data-aos="fade-up"
               data-aos-delay={`${i * 100}`}
             >
               <div>
                 <h4 className="text-lg font-medium mb-2">{proj.title}</h4>
-                <p className="text-gray-500 text-sm mb-6">{proj.description}</p>
+                <p className="text-gray-600 text-sm mb-6">{proj.description}</p>
               </div>
               <a
                 href={proj.link}
-                className="inline-block bg-black text-white text-sm px-4 py-2 rounded hover:scale-105 transition-transform duration-300 self-start mt-auto"
+                className="inline-block border border-gray-700 text-gray-800 text-sm px-4 py-2 rounded hover:bg-gray-100 hover:scale-105 transition-transform duration-300 self-start mt-auto"
                 target="_blank"
                 rel="noopener noreferrer"
               >
