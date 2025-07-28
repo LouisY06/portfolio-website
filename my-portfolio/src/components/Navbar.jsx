@@ -6,8 +6,8 @@ export default function Navbar() {
 
   const navLinks = [
     { name: 'Home', href: '/#home' },
-    { name: 'Projects', href: '/#projects' },
-    { name: 'About', href: '/#about' },
+    { name: 'About', href: '/#about' },    // Swapped
+    { name: 'Projects', href: '/#projects' }, // Swapped
     { name: 'Contact', href: '/#contact' },
   ];
 
@@ -16,7 +16,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <a
-          href="https://louis-yu.net"
+          href="/#home"
           className="text-md md:text-lg font-mono font-semibold text-gray-800 hover:text-black cursor-pointer"
         >
           louisyu — portfolio

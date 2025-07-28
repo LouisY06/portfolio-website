@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 import project1 from '../assets/project1.png';
 import project2 from '../assets/project2.png';
 import project3 from '../assets/project3.png';
 
 export default function Projects() {
+  useEffect(() => {
+    AOS.init({ duration: 800, once: false });
+    AOS.refresh();
+  }, []);
+
   const featuredProjects = [
     {
       title: 'TFT Voice Assistant',
@@ -22,7 +30,7 @@ export default function Projects() {
     {
       title: 'Finge – The Dating App for Stocks',
       description:
-        'Swipe-based investing experience to make stock discovery more fun and accessible. Built in React Native using OpenAI, Nasdaq, and Yahoo Finance APIs.',
+        'Swipe-based investing experience to make stock discovery more fun and accessible. Built in React Native and Python using LLaMA, Nasdaq, and Yahoo Finance APIs.',
       image: project3,
       link: 'https://devpost.com/software/finge',
     },
@@ -35,6 +43,12 @@ export default function Projects() {
         'Co-authored a research paper on computational methods and NLP, published in a peer-reviewed journal. Explores modern techniques in sentiment classification. NSF Grant 2435093',
       link: '/paper.pdf',
       buttonText: 'View PDF →',
+    },
+    {
+      title: 'Penny Stock Predictor',
+      description:
+        'With the increase in meme and penny stock popularity, I identfied that "hype" was a big part of what drove a penny stock to rise. I built a program that scrapes Reddit subreddits to find the most mentioned penny stocks and then use sentiment analysis to determine if the sentiment is positive or negative. I then use this data to predict the next day\'s stock price. This project was inspired by my X Sentiment Analyzer. So far, I have earned over $400 by just blindly following the top two recommendations.',
+      link: 'https://github.com/LouisY06/penny-stock-guru',
     },
     {
       title: 'X Sentiment Analyzer',

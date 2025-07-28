@@ -112,13 +112,6 @@ export default function Hero() {
         >
           Download Resume
         </a>
-
-        <a
-          href="/timeline"
-          className="px-6 py-2 border border-blue-300 rounded-md text-gray-800 hover:bg-blue-100 hover:scale-105 transition-all duration-300"
-        >
-          Story of My Life
-        </a>
       </div>
 
       {/* Inline styles */}
