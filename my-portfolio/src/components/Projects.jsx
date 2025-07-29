@@ -47,7 +47,7 @@ export default function Projects() {
     {
       title: 'Penny Stock Predictor',
       description:
-        'With the increase in meme and penny stock popularity, I identfied that "hype" was a big part of what drove a penny stock to rise. I built a program that scrapes Reddit subreddits to find the most mentioned penny stocks and then use sentiment analysis to determine if the sentiment is positive or negative. I then use this data to predict the next day\'s stock price. This project was inspired by my X Sentiment Analyzer. So far, I have earned over $400 by just blindly following the top two recommendations.',
+        'With the increase in meme and penny stock popularity, I built a program that recommends a penny stock to buy based on "hype" and sentiment analysis of Reddit posts. I have earned $400+ by just blindly following this program.',
       link: 'https://github.com/LouisY06/penny-stock-guru',
     },
     {
@@ -73,12 +73,10 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="min-h-screen bg-[#f5f5f5] px-6 py-20 font-mono text-gray-900"
+      className="min-h-screen bg-gradient-to-t from-slate-100 via-gray-100 to-white px-6 py-20 text-gray-900 font-mono"
     >
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-16">
-          Selected Projects
-        </h2>
+        <h2 className="text-4xl font-bold text-center mb-16">Selected Projects</h2>
 
         {/* Featured Projects */}
         <div className="space-y-20">
@@ -101,9 +99,9 @@ export default function Projects() {
                 <p className="text-gray-700 mb-4">{proj.description}</p>
                 <a
                   href={proj.link}
-                  className="inline-block border border-gray-800 text-gray-900 px-4 py-2 rounded hover:bg-gray-100 hover:scale-105 transition-transform duration-300"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="inline-block border border-gray-700 text-gray-800 px-4 py-2 rounded hover:bg-gray-100 hover:scale-105 transition-transform duration-300"
                 >
                   View Project →
                 </a>
@@ -113,27 +111,27 @@ export default function Projects() {
         </div>
 
         {/* Divider */}
-        <div className="my-20 border-t border-gray-300"></div>
+        <div className="my-20 border-t border-gray-300" />
 
-        {/* More Projects */}
+        {/* Small Projects */}
         <h3 className="text-2xl font-semibold mb-6">More Projects</h3>
         <div className="grid md:grid-cols-3 gap-6">
           {smallProjects.map((proj, i) => (
             <div
               key={i}
-              className="border border-gray-300 rounded-lg p-6 flex flex-col justify-between hover:shadow-md transition bg-white"
+              className="border border-gray-300 bg-white rounded-lg p-6 flex flex-col justify-between hover:shadow-md transition-all"
               data-aos="fade-up"
-              data-aos-delay={`${i * 100}`}
+              data-aos-delay={i * 100}
             >
               <div>
                 <h4 className="text-lg font-medium mb-2">{proj.title}</h4>
-                <p className="text-gray-600 text-sm mb-6">{proj.description}</p>
+                <p className="text-sm text-gray-600 mb-6">{proj.description}</p>
               </div>
               <a
                 href={proj.link}
-                className="inline-block border border-gray-700 text-gray-800 text-sm px-4 py-2 rounded hover:bg-gray-100 hover:scale-105 transition-transform duration-300 self-start mt-auto"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="inline-block border border-gray-800 text-gray-800 text-sm px-4 py-2 rounded hover:bg-gray-100 hover:scale-105 transition-transform duration-300 self-start mt-auto"
               >
                 {proj.buttonText || 'View on GitHub →'}
               </a>

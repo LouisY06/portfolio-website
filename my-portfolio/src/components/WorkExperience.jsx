@@ -34,7 +34,6 @@ export default function WorkExperience() {
   ];
 
   useEffect(() => {
-    // Initialize AOS if not already done
     import('aos').then((AOS) => {
       AOS.init({ duration: 800, once: true });
     });
@@ -43,15 +42,15 @@ export default function WorkExperience() {
   return (
     <section
       id="experience"
-      className="px-6 py-20 bg-gray-50 text-gray-900 font-mono"
+      className="px-6 py-20 bg-gradient-to-b from-slate-100 via-gray-100 to-white text-gray-900 font-mono"
     >
-      <div className="max-w-3xl mx-auto">
-        <h2 className="text-4xl font-bold mb-16 text-center">Work Experience</h2>
+      <div className="max-w-4xl mx-auto">
+        <h2 className="text-4xl font-bold text-center mb-16">Work Experience</h2>
         <div className="flex flex-col gap-8">
           {experiences.map((exp, idx) => (
             <div
               key={idx}
-              className="bg-white border border-gray-200 rounded-lg p-6 shadow transition-all"
+              className="bg-white border border-gray-300 rounded-lg p-6 shadow-sm hover:shadow-md transition-all"
               data-aos="fade-up"
               data-aos-delay={idx * 100}
             >
@@ -66,7 +65,7 @@ export default function WorkExperience() {
                   href={exp.link.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block text-sm border border-gray-700 px-4 py-2 rounded hover:bg-gray-100 transition"
+                  className="inline-block text-sm border border-gray-800 text-gray-800 px-4 py-2 rounded hover:bg-gray-100 hover:scale-105 transition-transform duration-300"
                 >
                   {exp.link.label}
                 </a>
