@@ -41,7 +41,7 @@ export default function Navbar() {
           </li>
           <li>
             <a
-              href="https://www.linkedin.com/in/louis-yu-964b67271/"
+              href="https://www.linkedin.com/in/louis-yu0612/"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-black"
